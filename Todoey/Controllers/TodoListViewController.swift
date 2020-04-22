@@ -79,24 +79,6 @@ class TodoListViewController: UITableViewController {
             }
         tableView.reloadData()
     }
-   
-    func loadData(with request: NSFetchRequest<TodoListModel> = TodoListModel.fetchRequest(), predicate: NSPredicate? = nil){
-
-        let categoryPredicate = NSPredicate(format: "todoToControlerModel.item MATCHES %@", selectedCategory!.item!)
-        if let notEmptyPredicate = predicate {
-            request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [categoryPredicate, notEmptyPredicate])
-        } else {
-            request.predicate = categoryPredicate
-        }
-        
-        do {
-        itemArray = try context.fetch(request)
-        } catch {
-            print(error)
-        }
-        tableView.reloadData()
-    }
-}
 
 // MARK: - Search bar manager (delegate = self <- zrobiony poprzez main.storyboard
 
