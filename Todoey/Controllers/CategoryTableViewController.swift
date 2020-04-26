@@ -1,25 +1,25 @@
 import UIKit
-import CoreData
+import RealmSwift
 
-class CategoryTableViewController: UITableViewController {
+class CategoryTableViewController: SharedCellFuncionality {
 
-    var controlerArray = [ControlerListModel]() 
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    var controlerArray: Results<ControlerListModel>?
+    //lazy var realm = try? Realm()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         loadData()
     }
 
-// MARK: - Controler table view setup
-    
+ //MARK: - Controler table view setup
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return controlerArray.count
+        return controlerArray?.count ?? 1
     }
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: K.controlerReusableCell, for: indexPath)
-        cell.textLabel?.text = "\(controlerArray[indexPath.row].item!)"
+        let cell = super.tableView(tableView, cellForRowAt: indexPath)
+        cell.textLabel?.text = "\(controlerArray?[indexPath.row].item ?? "No category being set")"
         return cell
     }
     
@@ -34,10 +34,9 @@ class CategoryTableViewController: UITableViewController {
         let action = UIAlertAction(title: K.barActionButton, style: .default) { (actionHandler) in
             
             if let safeMessage = message.text {
-                let item = ControlerListModel(context: self.context)
+                let item = ControlerListModel()
                 item.item = safeMessage
-                self.controlerArray.append(item)
-            self.saveData()
+                self.saveData(data: item)
             }
         }
         
@@ -52,21 +51,20 @@ class CategoryTableViewController: UITableViewController {
     
      //MARK: - Data methods
      
-     func saveData(){
+    func saveData(data: ControlerListModel){
              do {
-                 try context.save()
-             } catch {
+                try? realm.write{
+                    realm.add(data)
+                }
+             }catch {
                  print(error)
              }
+        
          tableView.reloadData()
      }
     
-     func loadData(with request: NSFetchRequest<ControlerListModel> = ControlerListModel.fetchRequest()){
-         do {
-         controlerArray = try context.fetch(request)
-         } catch {
-             print(error)
-         }
+     func loadData(){
+        controlerArray = realm.objects(ControlerListModel.self)
          tableView.reloadData()
      }
 
@@ -81,7 +79,25 @@ class CategoryTableViewController: UITableViewController {
         let destinationVC = segue.destination as! TodoListViewController
 
         if let indexPath = tableView.indexPathForSelectedRow {
-            destinationVC.selectedCategory = controlerArray[indexPath.row]
+            destinationVC.selectedCategory = controlerArray?[indexPath.row]
         }
     }
-}
+    
+  
+//MARK: - Swipe functions
+    
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+
+        let deleteAction = UIContextualAction(style: .destructive, title: "Skasuj", handler: { (action, view, completionHandler) in
+
+            if let arrayForDelete = self.controlerArray?[indexPath.row] {
+                super.deletingCell(arrayForDelete: arrayForDelete)
+            }
+            tableView.reloadData()
+            completionHandler(true)
+           })
+        deleteAction.backgroundColor = .red
+            return UISwipeActionsConfiguration(actions: [deleteAction])
+        }    
+    }
+

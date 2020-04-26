@@ -2,8 +2,7 @@ import Foundation
 
 struct K {
     
-    static let todoReusableCell = "TodoReusableCell"
-    static let controlerReusableCell = "ControlerReusabeCell"
+    static let reusableCell = "Cell"
     static let alertTitle = "Add new Todoey item"
     static let barActionButton = "Add Item"
     static let actionPlaceHolder = "Type something"
