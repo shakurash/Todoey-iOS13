@@ -39,12 +39,14 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Todoey" id="XXS-fN-Ntf">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="dza-cC-nHj">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="barAddButton:" destination="yjg-ng-aQ4" id="ll2-Ig-HeT"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="searchBar" destination="3nf-sx-Cx4" id="T82-oH-atC"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="deM-bj-jnx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -73,7 +75,7 @@
             </objects>
             <point key="canvasLocation" x="-977" y="130"/>
         </scene>
-        <!--Category Table View Controller-->
+        <!--Todoey-->
         <scene sceneID="tzr-jq-bcM">
             <objects>
                 <tableViewController id="9aQ-AK-j4Y" customClass="CategoryTableViewController" customModule="Todoey" customModuleProvider="target" sceneMemberID="viewController">
@@ -96,9 +98,8 @@
                             <outlet property="delegate" destination="9aQ-AK-j4Y" id="JVG-sf-ust"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="xC4-nR-BQQ">
+                    <navigationItem key="navigationItem" title="Todoey" id="xC4-nR-BQQ">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="iK1-Mh-Dzf">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="barAddButton:" destination="9aQ-AK-j4Y" id="6k0-it-XCF"/>
                             </connections>

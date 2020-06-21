@@ -1,14 +1,20 @@
 import UIKit
 import RealmSwift
+import ChameleonFramework
 
 class CategoryTableViewController: SharedCellFuncionality {
 
     var controlerArray: Results<ControlerListModel>?
+
     //lazy var realm = try? Realm()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         loadData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.barTintColor = UIColor(hexString: "8DD3FD")
     }
 
  //MARK: - Controler table view setup
@@ -19,7 +25,10 @@ class CategoryTableViewController: SharedCellFuncionality {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = super.tableView(tableView, cellForRowAt: indexPath)
+        
         cell.textLabel?.text = "\(controlerArray?[indexPath.row].item ?? "No category being set")"
+        cell.backgroundColor = UIColor(hexString: controlerArray?[indexPath.row].cellColor ?? "#FFFFF0")
+        
         return cell
     }
     
@@ -36,6 +45,7 @@ class CategoryTableViewController: SharedCellFuncionality {
             if let safeMessage = message.text {
                 let item = ControlerListModel()
                 item.item = safeMessage
+                item.cellColor = self.getColor()
                 self.saveData(data: item)
             }
         }
@@ -52,13 +62,10 @@ class CategoryTableViewController: SharedCellFuncionality {
      //MARK: - Data methods
      
     func saveData(data: ControlerListModel){
-             do {
+
                 try? realm.write{
                     realm.add(data)
-                }
-             }catch {
-                 print(error)
-             }
+        }
         
          tableView.reloadData()
      }
@@ -96,8 +103,14 @@ class CategoryTableViewController: SharedCellFuncionality {
             tableView.reloadData()
             completionHandler(true)
            })
-        deleteAction.backgroundColor = .red
+            deleteAction.backgroundColor = .red
             return UISwipeActionsConfiguration(actions: [deleteAction])
-        }    
+        }
+    
+    func getColor() -> String {
+        let color = UIColor.randomFlat()
+        let hexColor = color.hexValue()
+        return hexColor
+    }
     }
 

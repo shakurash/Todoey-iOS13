@@ -7,18 +7,64 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8E38674F33734723D1FAC15B /* Pods_Todoey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BD30330FDB57E19B8A410DD /* Pods_Todoey.framework */; };
 		E1486E38244DC5B400622356 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1486E37244DC5B400622356 /* Constants.swift */; };
 		E14A1A9024503E4600DB92AF /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14A1A8F24503E4600DB92AF /* CategoryTableViewController.swift */; };
 		E14E7AB62451854600BF2007 /* TodoListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14E7AB52451854600BF2007 /* TodoListModel.swift */; };
 		E14E7AB82451859500BF2007 /* ControlerListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14E7AB72451859500BF2007 /* ControlerListModel.swift */; };
 		E1BD99C12455966D005B397A /* SharedCellFuncionality.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BD99C02455966D005B397A /* SharedCellFuncionality.swift */; };
+		E1DA5620249FA2110032D632 /* Pods_Todoey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BD30330FDB57E19B8A410DD /* Pods_Todoey.framework */; };
+		E1DA5621249FA2110032D632 /* Pods_Todoey.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0BD30330FDB57E19B8A410DD /* Pods_Todoey.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EB2BE4FA239524DB00FB933B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2BE4F9239524DB00FB933B /* AppDelegate.swift */; };
 		EB2BE4FE239524DB00FB933B /* TodoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2BE4FD239524DB00FB933B /* TodoListViewController.swift */; };
 		EB2BE501239524DB00FB933B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB2BE4FF239524DB00FB933B /* Main.storyboard */; };
 		EB2BE503239524DC00FB933B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB2BE502239524DC00FB933B /* Assets.xcassets */; };
 		EB2BE506239524DC00FB933B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB2BE504239524DC00FB933B /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E1DA562D249FA22F0032D632 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E1DA5626249FA22F0032D632 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0383903D05EDD5C442C682C1F7A1752D;
+			remoteInfo = ChameleonFramework;
+		};
+		E1DA562F249FA22F0032D632 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E1DA5626249FA22F0032D632 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7786EB906104F334F45C3FDA3B307DCF;
+			remoteInfo = "Pods-Todoey";
+		};
+		E1DA5631249FA22F0032D632 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E1DA5626249FA22F0032D632 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 921BE4A82C4A7A5C72A0C6F8B8FEF200;
+			remoteInfo = Realm;
+		};
+		E1DA5633249FA22F0032D632 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E1DA5626249FA22F0032D632 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 437919EE08EC6BFCCBAC3BD346309742;
+			remoteInfo = RealmSwift;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E1DA5622249FA2110032D632 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				E1DA5621249FA2110032D632 /* Pods_Todoey.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0BD30330FDB57E19B8A410DD /* Pods_Todoey.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Todoey.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -29,6 +75,8 @@
 		E14E7AB52451854600BF2007 /* TodoListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListModel.swift; sourceTree = "<group>"; };
 		E14E7AB72451859500BF2007 /* ControlerListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlerListModel.swift; sourceTree = "<group>"; };
 		E1BD99C02455966D005B397A /* SharedCellFuncionality.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedCellFuncionality.swift; sourceTree = "<group>"; };
+		E1DA5623249FA21A0032D632 /* Realm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Realm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1DA5626249FA22F0032D632 /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = Pods/Pods.xcodeproj; sourceTree = "<group>"; };
 		EB2BE4F6239524DB00FB933B /* Todoey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todoey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB2BE4F9239524DB00FB933B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB2BE4FD239524DB00FB933B /* TodoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListViewController.swift; sourceTree = "<group>"; };
@@ -43,7 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8E38674F33734723D1FAC15B /* Pods_Todoey.framework in Frameworks */,
+				E1DA5620249FA2110032D632 /* Pods_Todoey.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,10 +135,23 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		E1DA5627249FA22F0032D632 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E1DA562E249FA22F0032D632 /* ChameleonFramework.framework */,
+				E1DA5630249FA22F0032D632 /* Pods_Todoey.framework */,
+				E1DA5632249FA22F0032D632 /* Realm.framework */,
+				E1DA5634249FA22F0032D632 /* RealmSwift.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		EA2DF04B3D83E1ECA1FEBBAD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				0BD30330FDB57E19B8A410DD /* Pods_Todoey.framework */,
+				E1DA5623249FA21A0032D632 /* Realm.framework */,
+				E1DA5626249FA22F0032D632 /* Pods.xcodeproj */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -139,6 +200,7 @@
 				EB2BE4F3239524DB00FB933B /* Frameworks */,
 				EB2BE4F4239524DB00FB933B /* Resources */,
 				5DEA894F20B081CA0D4FE130 /* [CP] Embed Pods Frameworks */,
+				E1DA5622249FA2110032D632 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -175,12 +237,49 @@
 			mainGroup = EB2BE4ED239524DB00FB933B;
 			productRefGroup = EB2BE4F7239524DB00FB933B /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = E1DA5627249FA22F0032D632 /* Products */;
+					ProjectRef = E1DA5626249FA22F0032D632 /* Pods.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				EB2BE4F5239524DB00FB933B /* Todoey */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		E1DA562E249FA22F0032D632 /* ChameleonFramework.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ChameleonFramework.framework;
+			remoteRef = E1DA562D249FA22F0032D632 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E1DA5630249FA22F0032D632 /* Pods_Todoey.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Pods_Todoey.framework;
+			remoteRef = E1DA562F249FA22F0032D632 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E1DA5632249FA22F0032D632 /* Realm.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Realm.framework;
+			remoteRef = E1DA5631249FA22F0032D632 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E1DA5634249FA22F0032D632 /* RealmSwift.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = RealmSwift.framework;
+			remoteRef = E1DA5633249FA22F0032D632 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		EB2BE4F4239524DB00FB933B /* Resources */ = {

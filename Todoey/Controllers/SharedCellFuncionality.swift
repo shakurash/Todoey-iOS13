@@ -1,18 +1,10 @@
-//
-//  CellDelete.swift
-//  Todoey
-//
-//  Created by Robert on 26/04/2020.
-//  Copyright © 2020 App Brewery. All rights reserved.
-//
-
 import UIKit
 import RealmSwift
 
 class SharedCellFuncionality: UITableViewController {
 
     lazy var realm = try! Realm()
-
+    
     func deletingCell(arrayForDelete: ControlerListModel? = nil, arrayForDelete2: TodoListModel? = nil) {
         do{
         try self.realm.write{

@@ -1,9 +1,11 @@
 import UIKit
 import RealmSwift
+import ChameleonFramework
 
 class TodoListViewController: SharedCellFuncionality {
 
-    //lazy var realm = try! Realm()
+    @IBOutlet weak var searchBar: UISearchBar!
+
     var selectedCategory: ControlerListModel? {
         didSet { loadData()
         }
@@ -14,6 +16,17 @@ class TodoListViewController: SharedCellFuncionality {
         
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        if let safeCategory = selectedCategory {
+            if let safeColor = UIColor(hexString: safeCategory.cellColor) {
+                navigationController?.navigationBar.tintColor = ContrastColorOf(safeColor, returnFlat: true)
+                navigationController?.navigationBar.barTintColor = safeColor
+                title = safeCategory.item
+                searchBar.barTintColor = safeColor
+                UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).defaultTextAttributes = [NSAttributedString.Key.foregroundColor: ContrastColorOf(safeColor, returnFlat: true)]
+            }
+        }
+    }
     //MARK: - Setup the view of TableView
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -23,8 +36,16 @@ class TodoListViewController: SharedCellFuncionality {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = super.tableView(tableView, cellForRowAt: indexPath)
        
-        cell.textLabel?.text = "\(itemArray?[indexPath.row].title ?? "No item added yet")"
-        cell.accessoryType = itemArray?[indexPath.row].done == true ? .checkmark : .none
+        if let item = itemArray?[indexPath.row] {
+            cell.textLabel?.text = "\(item.title)"
+            cell.accessoryType = item.done == true ? .checkmark : .none
+            if let safeCategory = selectedCategory?.cellColor {
+                if let color = UIColor(hexString: safeCategory) {
+                    cell.backgroundColor = color.darken(byPercentage: CGFloat(indexPath.row)/CGFloat(itemArray!.count))
+                    cell.textLabel?.textColor = ContrastColorOf(cell.backgroundColor!, returnFlat: true)
+                }
+            }
+        }
         
         return cell
         }

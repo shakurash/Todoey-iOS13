@@ -17,20 +17,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        let config = Realm.Configuration(schemaVersion: 1, migrationBlock: {migration, oldSchemaVersion in
-            if (oldSchemaVersion < 1){
+        let config = Realm.Configuration(schemaVersion: 2, migrationBlock: {migration, oldSchemaVersion in
+            if (oldSchemaVersion < 10){
             }
         })
         
         Realm.Configuration.defaultConfiguration = config
-        do {
-            let _ = try Realm()
-            print(Realm.Configuration.defaultConfiguration.fileURL)
-        } catch {
-            print(error)
-        }
-        
-        
+            let _ = try! Realm()
+            //print(Realm.Configuration.defaultConfiguration.fileURL)
         return true
     }
     
